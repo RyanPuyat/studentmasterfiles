@@ -46,10 +46,6 @@ const TableList = () => {
       student.fname.toLowerCase().includes(searchData) ||
       student.lname.toLowerCase().includes(searchData)
   );
-<<<<<<< HEAD
-=======
-  console.log(filteredData);
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
 
   if (loading) {
     return (

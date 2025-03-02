@@ -3,11 +3,8 @@ import StudentReducer from './StudentReducer';
 import { ACTION } from './Action';
 import axios from 'axios';
 
-<<<<<<< HEAD
 const API_URL = import.meta.env.VITE_API_URL;
 
-=======
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
 const StudentContext = createContext();
 
 export const StudentProvider = ({ children }) => {
@@ -31,11 +28,7 @@ export const StudentProvider = ({ children }) => {
         setLoading();
 
         const res = await axios.get(
-<<<<<<< HEAD
           `${API_URL}/api/student?page=${page}&limit=${limit}&search=${search}`
-=======
-          `/api/student?page=${page}&limit=${limit}&search=${search}`
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
         );
         const data = res.data.data;
 
@@ -61,11 +54,7 @@ export const StudentProvider = ({ children }) => {
   );
 
   const addNewData = async (newData) => {
-<<<<<<< HEAD
     const res = await axios.post(`${API_URL}/api/student`, newData, {
-=======
-    const res = await axios.post('/api/student', newData, {
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
       headers: {
         'Content-type': 'application/json',
       },
@@ -81,11 +70,7 @@ export const StudentProvider = ({ children }) => {
 
   const deleteData = async (id) => {
     if (window.confirm('Are you sure you want to delete this data?')) {
-<<<<<<< HEAD
       await axios.delete(`${API_URL}/api/student/${id}`, {
-=======
-      await axios.delete(`/api/student/${id}`, {
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
         method: 'DELETE',
       });
 
@@ -98,11 +83,7 @@ export const StudentProvider = ({ children }) => {
 
   const editData = async (id, updItem) => {
     try {
-<<<<<<< HEAD
       const res = await axios.put(`${API_URL}/api/student/${id}`, updItem, {
-=======
-      const res = await axios.put(`/api/student/${id}`, updItem, {
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
         headers: {
           'Content-type': 'application/json',
         },
@@ -142,12 +123,6 @@ export const StudentProvider = ({ children }) => {
         searchData: state.searchData,
         totalPages: state.totalPages,
         currentPage: state.currentPage,
-<<<<<<< HEAD
-
-=======
-        // allData: state.allData,
-        // searchQuery,
->>>>>>> a6b36e9e832e6def8cf0beaffe301b4fcc1e9cf8
         setSearchData,
         fetchData,
         addNewData,
