@@ -1,0 +1,7 @@
+export const MODAL_MODE = {
+  OPENMODAL: 'OPEN_MODAL',
+  CLOSEMODAL: 'CLOSE_MODAL',
+  SETFORMDATA: 'SET_FORM_DATA',
+  ADDMODE: 'add',
+  EDITMODE: 'edit',
+};

@@ -1,0 +1,4 @@
+export const ALERT = {
+  SETALERT: 'SET_ALERT',
+  REMOVEALERT: 'REMOVE_ALERT',
+};
