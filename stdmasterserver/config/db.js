@@ -5,6 +5,9 @@ const poolConfig = {
   max: 5,
   min: 2,
   idleTimeoutMillis: 600000,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const userName = process.env.PG_USER;
