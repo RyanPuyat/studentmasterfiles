@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react';
 import AlertReducer from './AlertReducer';
-import { ALERT } from './Alert';
+import { ALERT } from './alert';
 
 const AlertContext = createContext();
 
