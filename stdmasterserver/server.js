@@ -9,7 +9,11 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
-    origin: ['http://localhost:5000', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:5000',
+      'http://localhost:3000',
+      'https://studentmasterfiles.vercel.app',
+    ],
     credentials: true,
   })
 );
