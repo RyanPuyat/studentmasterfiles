@@ -3,6 +3,8 @@ import StudentReducer from './StudentReducer';
 import { ACTION } from './Action';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const StudentContext = createContext();
 
 export const StudentProvider = ({ children }) => {
@@ -26,7 +28,7 @@ export const StudentProvider = ({ children }) => {
         setLoading();
 
         const res = await axios.get(
-          `/api/student?page=${page}&limit=${limit}&search=${search}`
+          `${API_URL}/api/student?page=${page}&limit=${limit}&search=${search}`
         );
         const data = res.data.data;
 
@@ -52,7 +54,7 @@ export const StudentProvider = ({ children }) => {
   );
 
   const addNewData = async (newData) => {
-    const res = await axios.post('/api/student', newData, {
+    const res = await axios.post(`${API_URL}/api/student`, newData, {
       headers: {
         'Content-type': 'application/json',
       },
@@ -68,7 +70,7 @@ export const StudentProvider = ({ children }) => {
 
   const deleteData = async (id) => {
     if (window.confirm('Are you sure you want to delete this data?')) {
-      await axios.delete(`/api/student/${id}`, {
+      await axios.delete(`${API_URL}/api/student/${id}`, {
         method: 'DELETE',
       });
 
@@ -81,7 +83,7 @@ export const StudentProvider = ({ children }) => {
 
   const editData = async (id, updItem) => {
     try {
-      const res = await axios.put(`/api/student/${id}`, updItem, {
+      const res = await axios.put(`${API_URL}/api/student/${id}`, updItem, {
         headers: {
           'Content-type': 'application/json',
         },
@@ -121,8 +123,7 @@ export const StudentProvider = ({ children }) => {
         searchData: state.searchData,
         totalPages: state.totalPages,
         currentPage: state.currentPage,
-        // allData: state.allData,
-        // searchQuery,
+
         setSearchData,
         fetchData,
         addNewData,

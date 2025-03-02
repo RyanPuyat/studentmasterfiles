@@ -46,7 +46,6 @@ const TableList = () => {
       student.fname.toLowerCase().includes(searchData) ||
       student.lname.toLowerCase().includes(searchData)
   );
-  console.log(filteredData);
 
   if (loading) {
     return (

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import { BrowserRouter as Router } from 'react-router';
 import Navbar from './components/Navbar';
 import TableList from './components/TableList';
 import Alert from './components/Alert';
@@ -14,15 +14,15 @@ function App() {
       <ModalProvider>
         <AlertProvider>
           <Router>
-            {/* <div className="flex flex-col justify-between h-screen"> */}
-            <Navbar />
-            <main>
-              <TableList />
-              <ModalForm />
-              <Alert />
-            </main>
-            {/* </div> */}
-            <Footer />
+            <div className="flex flex-col justify-between h-screen">
+              <Navbar />
+              <main>
+                <TableList />
+                <ModalForm />
+                <Alert />
+              </main>
+              <Footer />
+            </div>
           </Router>
         </AlertProvider>
       </ModalProvider>

@@ -14,14 +14,6 @@ app.use(
   })
 );
 
-// app.get('/', (req, res) => {
-//   res.send({ message: 'Hello to student API' });
-// });
-
-// app.get('/api/students', (req, res) => {
-//   res.send({ success: true, data: students });
-// });
-
 const studentRouter = require('./routes/studentData');
 app.use('/api/student', studentRouter);
 
