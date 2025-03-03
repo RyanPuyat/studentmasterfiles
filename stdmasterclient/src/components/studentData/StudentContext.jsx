@@ -11,16 +11,23 @@ export const StudentProvider = ({ children }) => {
   const initialState = {
     studentData: [],
     searchData: '',
-    // allData: [],
     totalPages: 1,
     currentPage: 1,
     loading: false,
+    error: '',
   };
   const [state, dispatch] = useReducer(StudentReducer, initialState);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  const setError = (message) => {
+    dispatch({
+      type: ACTION.SETERROR,
+      payload: message,
+    });
+  };
 
   const fetchData = useCallback(
     async (page = 1, limit = 10, search = '') => {
@@ -30,6 +37,11 @@ export const StudentProvider = ({ children }) => {
         const res = await axios.get(
           `${API_URL}/api/student?page=${page}&limit=${limit}&search=${search}`
         );
+
+        if (res.status !== 200) {
+          throw new Error('Error Fetching Data');
+        }
+
         const data = res.data.data;
 
         dispatch({
@@ -47,7 +59,8 @@ export const StudentProvider = ({ children }) => {
           payload: res.data.currentPage,
         });
       } catch (error) {
-        console.error('Fetch error:', error);
+        console.error('Fetch error:', error.message);
+        setError(`Fetch Error: ${error.message}`);
       }
     },
     [dispatch]
@@ -123,6 +136,7 @@ export const StudentProvider = ({ children }) => {
         searchData: state.searchData,
         totalPages: state.totalPages,
         currentPage: state.currentPage,
+        error: state.error,
         setSearchData,
         fetchData,
         addNewData,

@@ -40,13 +40,6 @@ const StudentReducer = (state, action) => {
         loading: false,
       };
 
-    // case ACTION.SEARCHQUERY:
-    //   return {
-    //     ...state,
-    //     allData: action.payload,
-    //     loading: false,
-    //   };
-
     case ACTION.SETTOTALPAGES:
       return {
         ...state,
@@ -65,6 +58,13 @@ const StudentReducer = (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+
+    case ACTION.SETERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
 
     default:

@@ -14,9 +14,9 @@ function App() {
       <ModalProvider>
         <AlertProvider>
           <Router>
-            <div className="flex flex-col justify-between h-screen">
+            <div className="flex flex-col justify-between min-h-screen ">
               <Navbar />
-              <main>
+              <main className="flex-grow">
                 <TableList />
                 <ModalForm />
                 <Alert />

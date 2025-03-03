@@ -11,11 +11,11 @@ const TableList = () => {
     studentData,
     setSearchData,
     searchData,
-
     loading,
     fetchData,
     currentPage,
     totalPages,
+    error,
   } = useContext(StudentContext);
 
   const [currentPages, setCurrentPages] = useState(currentPage);
@@ -47,13 +47,7 @@ const TableList = () => {
       student.lname.toLowerCase().includes(searchData)
   );
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-full">
-        <Loading />
-      </div>
-    );
-  } else {
+  if (!loading && !error) {
     return (
       <>
         <Search searchValue={searchData} handleSearch={handleSearch} />
@@ -61,12 +55,14 @@ const TableList = () => {
         <div className="overflow-x-auto mt-10 flex justify-center">
           <div className="w-full max-w-7xl overflow-y-hidden p-10">
             <table className="table">
-              <thead className="text-center border-2  border-gray-600">
+              <thead className="text-center border-2  border-gray-600 bg-blue-300 text-black text-lg">
                 <tr>
-                  <th className="px-4 py-4 ">First Name</th>
-                  <th className="px-4 py-4">Last Name</th>
-                  <th className="px-4 py-4">Course</th>
-                  <th className="px-4 py-4">Email</th>
+                  <th className="px-3 py-3 ">First Name</th>
+                  <th className="px-3 py-3 ">Course</th>
+                  <th className="px-3 py-3 ">Last Name</th>
+                  <th className="px-3 py-3 ">Email</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
 
@@ -90,6 +86,20 @@ const TableList = () => {
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
+      </>
+    );
+  } else if (loading) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <Loading />
+      </div>
+    );
+  } else if (error) {
+    return (
+      <>
+        <div className="flex justify-center items-center h-full mt-10">
+          <p>⛔️ {error}</p>
+        </div>
       </>
     );
   }

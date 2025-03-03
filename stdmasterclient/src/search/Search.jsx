@@ -1,6 +1,6 @@
 const Search = ({ searchValue, handleSearch }) => {
   return (
-    <div className="flex justify-center items-center mt-4 ">
+    <div className="flex justify-center items-center mt-6 bg-fixed">
       <div className="relative">
         <input
           type="text"
