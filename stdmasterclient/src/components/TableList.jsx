@@ -90,10 +90,20 @@ const TableList = () => {
     );
   } else if (loading) {
     return (
-      <div className="flex justify-center items-center h-full">
-        <Loading />
-        <p>Fetching data please wait . . .</p>
-      </div>
+      // <div className="flex flex-col justify-center items-center h-full">
+      //   <Loading />
+      //   <p>Fetching data please wait . . .</p>
+      // </div>
+      <>
+        <div className="flex flex-col justify-center items-center h-full relative">
+          <div className="flex justify-center items-center flex-grow">
+            <Loading />
+          </div>
+          <p className="absolute bottom-5 text-center">
+            Fetching data, please wait . . .
+          </p>
+        </div>
+      </>
     );
   } else if (error) {
     return (
