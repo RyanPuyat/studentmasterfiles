@@ -92,6 +92,7 @@ const TableList = () => {
     return (
       <div className="flex justify-center items-center h-full">
         <Loading />
+        <p>Fetching data please wait . . .</p>
       </div>
     );
   } else if (error) {
